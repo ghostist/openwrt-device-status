@@ -1,0 +1,16 @@
+#!/bin/sh /etc/rc.common
+# /etc/init.d/serverchan
+
+START=99
+STOP=20
+
+start() {          
+        echo start  
+        sh /root/test.sh
+}                   
+   
+stop() {            
+        echo stop  
+         pid=ps | grep "test.sh" | grep -v grep | awk '{print $1}'
+         kill -9 $pid
+}  
